@@ -1,0 +1,76 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <main class="video">
+        <div class="banner">
+            <picture><source srcset="img/page-main-video.webp" type="image/webp"><img class="banner__img " src="img/page-main-video.png" alt="Видеонаблюдение"></picture> </img>
+            <div class="banner__gradient-box"></div>
+            <div class="banner__block_container">
+                <div class="banner__block">
+                    <div class="banner__block_1">
+                        <p class="banner__title">ВИДЕОНАБЛЮДЕНИЕ<br>"ПОД КЛЮЧ"</p>
+                        <p class="banner__text">Устанавливаем видеонаблюдение с<br>удаленным доступом, записью по<br>движению и ночной подсветкой</p>
+                        <!--a href="#" class="internet__button">Выбрать тариф</a-->
+                        <a href="#" class="button banner__button modal_go" data-service="Видеонаблюдение для дома">Для дома</a>
+                        <a href="#" class="button banner__button modal_go" data-service="Видеонаблюдение для бизнеса">Для бизнеса</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="videoadvantages videoadvantages__title">
+            <p class="main__title" data-aos="fade-down">НАБЛЮДАЙТЕ ЗА СВОИМ ДОМОМ И ОФИСОМ ГДЕ БЫ ВЫ НЕ НАХОДИЛИСЬ!</p>
+            <div class="videoadvantages__items">
+                <div class="videoadvantages__items_item" data-aos="fade-down">
+                    <picture><source srcset="img/video-item-1.webp" type="image/webp"><img class="videoadvantages__items_item_icon" src="img/video-item-1.png" alt="Легкая установка"></picture>
+                    <p class="videoadvantages__items_item_text">Легкая<br>установка</p>
+                </div>
+                <div class="videoadvantages__items_item" data-aos="fade-down">
+                    <picture><source srcset="img/video-item-2.webp" type="image/webp"><img class="videoadvantages__items_item_icon" src="img/video-item-2.png" alt="Видео со звуком"></picture>
+                    <p class="videoadvantages__items_item_text">Видео<br>со звуком</p>
+                </div>
+                <div class="videoadvantages__items_item" data-aos="fade-down">
+                    <picture><source srcset="img/video-item-3.webp" type="image/webp"><img class="videoadvantages__items_item_icon" src="img/video-item-3.png" alt="Моментальные push-уведомления о событиях"></picture>
+                    <p class="videoadvantages__items_item_text">Моменталь<br>ные push-<br>уведомления<br>о событиях</p>
+                </div>
+                <div class="videoadvantages__items_item" data-aos="fade-down">
+                    <picture><source srcset="img/video-item-4.webp" type="image/webp"><img class="videoadvantages__items_item_icon" src="img/video-item-4.png" alt="Видео в высоком качестве Full HD(1920x1080)"></picture>
+                    <p class="videoadvantages__items_item_text">Видео в<br>высоком <wbr>качестве<br>Full HD(1920x10<wbr>80)</p>
+                </div>
+                <div class="videoadvantages__items_item_flex-br"></div>
+                <div class="videoadvantages__items_item" data-aos="fade-down">
+                    <picture><source srcset="img/video-item-5.webp" type="image/webp"><img class="videoadvantages__items_item_icon" src="img/video-item-5.png" alt="Облачное хранение"></picture>
+                    <p class="videoadvantages__items_item_text">Облачное<br>хранение</p>
+                </div>
+                <div class="videoadvantages__items_item" data-aos="fade-down">
+                    <picture><source srcset="img/video-item-6.webp" type="image/webp"><img class="videoadvantages__items_item_icon" src="img/video-item-6.png" alt="Ночная съёмка"></picture>
+                    <p class="videoadvantages__items_item_text">Ночная<br>съёмка</p>
+                </div>
+                <div class="videoadvantages__items_item" data-aos="fade-down">
+                    <picture><source srcset="img/video-item-7.webp" type="image/webp"><img class="videoadvantages__items_item_icon" src="img/video-item-7.png" alt="Онлайн-просмотр с любого устройства, в любой точке мира"></picture>
+                    <p class="videoadvantages__items_item_text">Онлайн-просмотр с<Wbr>любого устройства,<Wbr>в любой точке мира</p>
+                </div>
+            </div>
+        </div>
+        <a name="rates"></a>
+        <div class="pricelist" data-aos="fade-down">
+            <picture><source srcset="img/page-video-installation.webp" type="image/webp"><img src="img/page-video-installation.jpg" alt="Цены и услуги" class="pricelist__img" data-aos="fade-down"></picture>
+            <div class="pricelist__container" data-aos="fade-down">
+                <p class="pricelist__title">Цены и услуги</p>
+                {% for rate in rates %}
+                    <div class="pricelist__container_item">
+                        <div class="pricelist__container_item_text">
+                            <p class="pricelist__subtitle">{{ rate.getName() }}</p>
+                            <div class="pricelist__text">{{ rate.getDescription() | raw }}</div>
+                        </div>
+                        <div class="pricelist__cost">
+                            <div class="pricelist__cost_digits">{{ rate.getCost() | raw}}</div><p class="pricelist__cost_letters">{{ rate.getCostType() }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="video__container">
+            {{ settings.getVideoText() | raw}}
+        </div>
+        
+    </main>
+{% endblock %}

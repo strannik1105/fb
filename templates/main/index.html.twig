@@ -1,0 +1,39 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <main class="main">
+        <h1 class="title" data-aos="fade-down">
+            Официальный сайт провайдера
+            <span class="title_name">FB-ТЕЛЕКОМ</span>
+        </h1>
+
+        <div class="services">
+            <div class="services__item" data-aos="fade-down">
+                <picture><source srcset="./img/page-main-home.webp" type="image/webp"><img class="services__item_img" src="./img/page-main-home.jpg" alt="ВЫСОКОСКОРОСТНОЙ ИНТЕРНЕТ"></picture>
+                <div class="services__item_block">
+                    <h2 class="services__item_title">ВЫСОКОСКОРОСТНОЙ <br>ИНТЕРНЕТ</h2>
+                    <a href="{{ path('internet') }}" class="button services__item_button">Подробнее</a>
+                </div>
+            </div>
+            <div class="services__item" data-aos="fade-right">
+                <picture><source srcset="./img/page-main-tv.webp" type="image/webp"><img class="services__item_img" src="./img/page-main-tv.jpg" alt="ИНТЕРАКТИВНОЕ ТЕЛЕВИДЕНИЕ"></picture>
+                <div class="services__item_block">
+                    <h2 class="services__item_title">ИНТЕРАКТИВНОЕ <br>ТЕЛЕВИДЕНИЕ</h2>
+                    <a href="{{ path('tv') }}" class="button services__item_button">Подробнее</a>
+                </div>
+            </div>
+            <div class="services__item" data-aos="fade-up">
+                <picture><source srcset="./img/page-main-video.webp" type="image/webp"><img class="services__item_img" src="./img/page-main-video.jpg" alt="ВЫСОКОСКОРОСТНОЙ ИНТЕРНЕТ"></picture>
+                <div class="services__item_block">
+                    <h2 class="services__item_title">ВИДЕОНАБЛЮДЕНИЕ <br>В КВАРТИРУ И ОФИС</h2>
+                    <a href="{{ path('video') }}" class="button services__item_button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main__content" data-aos="fade-up">
+            <p class="main__content_text">
+                {{ settings.getMainPage() | raw }}
+            </p>
+        </div>
+    </main>
+{% endblock %}

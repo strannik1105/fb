@@ -1,0 +1,525 @@
+@media all and (min-width:1750px) {
+	h1 {
+		font-size: 64px;
+		margin: 1% 0;
+	}
+	.header_slide {
+		padding-bottom: 40%;
+	}
+	.main_slider .owl-nav {
+    top: calc(50% - 42px);
+    width: auto;
+    left: -5px;
+    right: -5px;
+	}
+}
+@media all and (max-width:1460px) {
+	.container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.secDop_item_unit .price_cost{
+		font-size: 25px;
+	}
+	.secEdge_box_left {
+		width: 43%;
+		margin-right: 2%;
+	}
+	.header_slide {
+		padding-bottom: 38%;
+	}
+	.main_slider .owl-nav {
+    width: 95%;
+    left: 2.5%;
+}
+}
+@media all and (max-width:1460px) and (min-width:1199px) {
+.secTv_subtitle span {
+    font-size: 13px;
+}
+}
+@media all and (min-height:900px) {
+	.header_slide {
+		padding-bottom: 47%;
+	}
+}
+@media all and (max-width:1350px) {
+	.secDop_item_unit {
+		width: 19%;
+		margin: 0 1% 15px;
+	}
+	/*.secDop_box {
+		justify-content: space-between;
+	}*/
+	h1 {
+		font-size: 3vw;
+	}
+	.secEdge_item {
+		margin-bottom: 20px;
+	}
+	.secCinema {
+		background-position: 50vw 18vw;
+		background-size: 100%;
+		background: url(../img/nout.jpg) no-repeat / 100%
+	}
+}
+@media all and (max-width:1300px) {
+	.owl-dots {
+		margin-top: 5px;
+	}
+	.secEdge_list li, .secInsert_list li {
+		font-size: 18px;
+	}
+	.secVideo_box {
+		padding-bottom: 35%;
+	}
+	.secDop_title_unit {
+		font-size: 16px;
+	}
+}
+@media all and (max-width:1199px) {
+	.secDop_box {
+		justify-content: center;
+	}
+	.secDop_item_unit {
+		min-width: 300px;
+		margin: 0 15px 20px;
+	}
+	.secInsert_list li {
+		font-size: 20px;
+	}
+	.secCinema {
+		background-position: 56vw 18vw;
+	}
+	.header_navItem_more {
+		display: block;
+	}
+	.header_nav > .header_navItem:nth-of-type(n+3) {
+		display: none;
+	}
+	.channels_content > span {
+		margin-bottom: 30px;
+	}
+	.secTv, .secCinema, .secInfo {
+		padding-top: 3%;
+	}
+	.secInsert {
+		padding: 50px 0;
+	}
+	.secInsert:before {
+		background: rgba(0,0,0,.6);
+	}
+	.header_bannerLink {
+		display: none !important;
+	}
+	.store {
+		height: auto;
+	}
+	.stores_box {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.store {
+		margin-bottom: 5px;
+	}
+}
+@media all and (max-width:1024px) {
+	.container {
+		padding-left: 64px;
+		padding-right: 64px;
+	}
+/*
+	.secInsert_box {
+		padding: 15% 0;
+	}
+*/
+	.secTv_item {
+		min-width: 330px;
+		margin-right: 15px;
+	}
+	.secTv_slider .owl-nav {
+		display: -webkit-flex !important;
+		display: -moz-flex !important;
+		display: -ms-flex !important;
+		display: -o-flex !important;
+		display: flex !important;
+		left: -15px;
+		right: -15px;
+		transform: translateY(-12px);
+		height: 0;
+	}
+	.channels_list > span {
+		width: 33%;
+	}
+}
+@media all and (min-width:991px) {
+	.header_navOuter {
+		display: block !important;
+	}
+}
+@media all and (max-width:991px) {
+.secTv_item {
+		height: auto;
+}
+
+	.header_slide1 a {
+		background-image: url(../../../img_iptv/banner1/banner_990.jpg);
+	}
+	.header_slide2 a {
+		background-image: url(../../../img_iptv/banner2/banner_990.jpg);
+	}
+	.header_slide3 a {
+		background-image: url(../../../img_iptv/banner3/banner_990.jpg);
+	}
+	.header_slide4 a {
+		background-image: url(../../../img_iptv/banner4/banner_990.jpg);
+	}
+	.header_navOuter {
+		display: none;
+		order: 4;
+		width: 100%;
+		margin-top: 10px;
+	}
+	.header_nav {
+		display: block;
+		text-align: center;
+	}
+	.header_trigger {
+		display: block;
+	}
+	.header_logos {
+		margin-right: auto;
+		order: 2;
+		margin-left: auto;
+	}
+	.header_btns {
+		order: 3;
+	}
+	.header_navItem_more {
+		display: none;
+	}
+	.header_navItem {margin-right: 0!important;margin-bottom: 5px;}
+	.header_nav > .header_navItem:nth-of-type(n+3) {
+		display: block;
+	}
+	.header_top .container {
+		flex-wrap: wrap;
+	}
+	.container {
+		padding-left: 48px;
+		padding-right: 48px;
+	}
+	h1 {
+		font-size: 4vw;
+		margin: 10px 0;
+	}
+	h2 {
+		font-size: 32px;
+	}
+	h3 {font-size: 20px;}
+	.secEdge_item p, .secInsert_box p {
+		font-size: 16px;
+	}
+	h2 br {
+		display: none;
+	}
+	.secEdge_box_left {
+		margin-right: 0;
+	}
+	.secEdge_box_right {
+		padding-left: 16px;
+	}
+	.secDop_item {
+		min-width: 250px;
+	}
+	.secDop_box {
+		justify-content: space-around;
+	}
+	.secCinema {
+		background: transparent;
+	}
+	.box {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+	.channels_all {
+		height: 300px;
+		overflow: hidden;
+	}
+	.channels_all.active {
+		height: auto;
+	}
+	.channels_link {
+		display: block;
+		margin-top: 20px;
+		text-align: center;
+		text-decoration: underline;
+	}
+	.channels_item {
+		flex-wrap: wrap;
+	}
+	.channels_left, .channels_right {
+		width: 100%;
+	}
+	.channels_left {
+		margin-bottom: 30px;
+	}
+	.channels_content > span {
+		padding-right: 20px;
+	}
+	#channels_genre .close {
+		right: 20px;
+		top: 20px;
+	}
+}
+@media all and (max-width:813px) {
+	.secTv_item {height:auto;}
+}
+@media all and (max-width:767px) {
+	.container {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+	.header_slide1 a {
+		background-image: url(../../../img_iptv/banner1/banner_770.jpg);
+	}
+	.header_slide2 a {
+		background-image: url(../../../img_iptv/banner2/banner_770.jpg);
+	}
+	.header_slide3 a {
+		background-image: url(../../../img_iptv/banner3/banner_770.jpg);
+	}
+	.header_slide4 a {
+		background-image: url(../../../img_iptv/banner4/banner_770.jpg);
+	}
+	h1 {font-size: 28px; margin: 15px auto;}
+	.secEdge_box {
+		flex-wrap: wrap;
+	}
+	.secEdge_box_left {
+		width: 100%;
+	}
+	.secEdge_box_right {
+		padding-left: 0;
+		width: 100%;
+		margin-top: 15px;
+	}
+	.secCinema_item {
+		min-width: 327px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.secInfo_item {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.secInfo_item:nth-of-type(3) {
+		top: 0;
+	}
+	.channels_list > span {
+		width: 50%;
+	}
+	.secEdge_item {
+		margin-bottom: 15px;
+	}
+	.secInsert_list li {
+		font-size: 18px;
+		line-height: 120%;
+	}
+/*
+	.header_top {
+		padding: 15px 0;
+	}
+*/
+	header {
+		padding-top: 50px;
+	}
+	.secDop_item_unit {
+		padding-bottom: 24px;
+		min-height: auto!important;
+		height: auto;
+	}
+	.secDop_price_unit {
+    		margin-bottom: 20px;
+	}
+	.secCinema_box .secDop_item_unit {
+		margin: 0 auto 30px;
+	}
+}
+@media all and (max-width:660px) {
+/*
+	.header_btns {
+		display: none;
+	}
+*/
+	.footer_btn {
+		display: block;
+		padding: 16px 0;
+		margin-top: 48px;
+	}
+}
+@media (pointer:coarse) {
+   #channels_genre .close {
+  	transform: translate3d(0,0,0);
+	   width: 20px;
+	   height: 20px;
+	   top: 10px;
+	   right: 5px;
+	}
+	#channels_genre .close:before {
+		display: none;
+	}
+}
+@media all and (max-width:575px) {
+	h1 {
+		font-size:25px;
+	}
+	h2 {
+		font-size: 20px;
+	}
+	.header_slide {
+	padding-bottom:40%;
+	}
+	.container {
+		padding-left: 24px;
+		padding-right:24px;
+	}
+	.secInsert {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.secInsert_box br {
+		display: none;
+	}
+	.secTv_item {
+		width: 350px;
+		margin: 0 auto;
+	}
+	.secTv_slider .owl-nav {
+		right: auto;
+		width: 370px;
+		transform: translate(-50%, -12px);
+		left: 50%;
+	}
+	.modal-window_channels {
+		max-width: 100%!important;
+		width: 100%!important;
+	}
+	.main_slider .owl-nav {
+		left: -15px;
+    		width: auto;
+    		right: -15px;
+		top: calc(50% - 30px);
+	}
+	.tariff_name {
+		font-size: 50px;
+	}
+	.genres_title {
+		font-size: 25px;
+		margin: 10px 0;
+	}
+	.channels_content .channels_name {
+		font-size: 16px;
+	}
+	.secVideo_box {
+		padding-bottom: 56%;
+	}
+	.secInsert {
+    	background-position: -75vw center;
+		padding: 25px 0;
+	}
+	.header_btns .btn_main {
+		margin-right: 0;
+	}
+	.header_logo2 img {
+		width: 40px;
+		margin: 0 5px;
+	}
+	.header_top .container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.price_cost {
+		font-size: 30px;
+	}
+/*
+	section .container, .header_banner .container {
+		padding-top: 50px;
+	}
+	.secTv .container {
+		padding-top: 70px;
+	}
+*/
+}
+@media all and (max-width:470px) {
+.header_btns .btn {
+font-size:12px;
+}
+}
+@media all and (max-width:400px) {
+	.tariff_name {
+		font-size: 30px;
+	}
+	h1 {
+		font-size:18px;
+	}
+	h2 {
+		font-size: 18px;
+	}
+	.secEdge_list li, .secInsert_list li {
+		font-size: 16px;
+	}
+	.header_slide {
+		padding-bottom: 47%;
+	}
+	.header_slide1 a {
+		background-image: url(../../../img_iptv/banner1/banner_400.jpg);
+	}
+	.header_slide2 a {
+		background-image: url(../../../img_iptv/banner2/banner_400.jpg);
+	}
+	.header_slide3 a {
+		background-image: url(../../../img_iptv/banner3/banner_400.jpg);
+	}
+	.header_slide4 a {
+		background-image: url(../../../img_iptv/banner4/banner_400.jpg);
+	}
+	.secTv_item {
+		width: 320px;
+	}
+	.secTv_slider .owl-nav {
+		width: 340px;
+	}
+	.store:not(:last-of-type) {
+		margin-right: 3%;
+	}
+	.store {
+		width: 28%;
+	}
+	.store:nth-of-type(4) {
+		width: auto;
+	}
+	.header_btns .btn_main {
+		padding: 8px 10px;
+	}
+	.header_logo1 {
+		width: 120px;
+	}
+}
+@media all and (max-width:370px) {
+	h1 {
+		font-size: 4.5vw;
+	}
+	.box {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+@media all and (max-width:340px) {
+	.header_btns .btn_main {
+		display: none;
+	}
+	.footer_logo {
+		width: 100%;
+	}
+}

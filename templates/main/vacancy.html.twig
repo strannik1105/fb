@@ -1,0 +1,55 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <div class="vacancy">
+        <p class="vacancy__title">
+            ВАКАНСИИ
+        </p>
+        <div class="vacancy__banner" data-aos="fade-down">
+            <div class="vacancy__banner_container">
+                <img src="/public/uploads/vacancy/{{ settings.getVacancyImage() }}" alt="ВАКАНСИИ" class="vacancy__banner_img">
+            </div>
+            <div class="vacancy__banner_container" >
+                <div class="vacancy__banner_content">
+                    {{ settings.getVacancyText() | raw}}
+                </div>
+            </div>
+        </div>
+        {% if vacancy != null %}
+        <div class="vacancy__list" data-aos="fade-down">
+            <p class="vacancy__list_title">
+                Открытые вакансии
+            </p>
+            {% for i in vacancy %}
+                <div class="vacancy__list_item">
+                    {% if i.getImage() != null %}
+                    <img src="/public/uploads/vacancy/{{ i.getImage() }}" alt="" class="vacancy__list_item_img" data-aos="fade-right">
+                    {% endif %}
+                    <div data-aos="fade-right">
+                        <p class="vacancy__list_item_title">Системный администратор</p>
+                        {% if i.getRequirements() != null %}
+                        <p class="vacancy__list_item_requirements">{{ i.getRequirements() }}</p>
+                        {% endif %}
+                        {% if i.getPayment() != null %}
+                        <p class="vacancy__list_item_payment">{{ i.getPayment() }}</p>
+                        {% endif %}
+                        <picture><source srcset="/img/line-stroke.webp" type="image/webp"><img src="/img/line-stroke.png" alt="" class="vacancy__list_item_splitter"></picture>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="vacancy__form" data-aos="fade-down">
+            <p class="vacancy__form_title">Запись на собеседование</p>
+            <input type="text" class="vacancy__form_name" placeholder="Введите имя">
+            <input type="text" class="vacancy__form_phone" placeholder="Телефон">
+            <input type="text" class="vacancy__form_vacancy" placeholder="Желаемая вакансия">
+            <input type="text" class="vacancy__form_resume" placeholder="Резюме">
+            <div class="support__solution_form_name" data-aos="fade-down">
+                <input id="check-vacancy" type="checkbox" required>
+                <label class="form__label_check-poltic" for="check-main-modal">Я согласен с <a href="https://myfbt.ru/page/privacy_policy">политикой
+                    конфиденсальности</a></label>
+            </div>
+            <a href="javascript:void(0)" class="button vacancy__form_button">Откликнуться</a>
+        </div>
+    </div>
+{% endblock %}

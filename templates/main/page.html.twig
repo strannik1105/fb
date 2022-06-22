@@ -1,0 +1,8 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <div class="custom-page">
+        {% if page != null %}
+            {{ page.getContent()| raw }}
+        {% endif %}
+    </div>
+{% endblock %}

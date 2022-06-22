@@ -1,0 +1,168 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <div class="support">
+        <div class="support__contacts" data-aos="fade-right">
+            <div class="support__contacts_top">
+                <picture><source srcset="img/icon-support.webp" type="image/webp"><img src="img/icon-support.png"></picture>
+                <p class="support__contacts_top_phone">
+                    {{ phone }}
+                </p>
+            </div>
+            <div class="support__contacts_bottom">
+                <picture><source srcset="img/line-split.webp" type="image/webp"><img src="img/line-split.png" alt="" class="support__contacts_bottom_splitter support__contacts_bottom_splitter_left"></picture>
+                <p class="support__contacts_bottom_text">
+                    Служба технической<br>поддержки FB-Telecom
+                </p>
+                <picture><source srcset="img/line-split.webp" type="image/webp"><img src="img/line-split.png" alt="" class="support__contacts_bottom_splitter"></picture>
+                <p class="support__contacts_bottom_text">
+                    Ежедневно<br>с 8:00 до 23:00
+                </p>
+            </div>
+        </div>
+        <div class="support__banner" data-aos="fade-down">
+            <div class="support__banner_container">
+                <div class="support__banner_container_img">
+                    <img src="/public/uploads/support/{{ settings.getSupportImage() }}" alt="" class="support__banner_img">
+                </div>
+            </div>
+            <div class="support__banner_container">
+                <div class="support__banner_questions">
+                    <p class="support__banner_questions_item" data-aos="fade-down">
+                        {{ settings.getSupportQuestions() | raw }}
+                    </p>
+                    <div class="support__banner_if" data-aos="fade-right" data-delay="1000">
+                        <p class="support__banner_if_letter">
+                            Е
+                        </p>
+                        <p class="support__banner_if_letter">
+                            С
+                        </p>
+                        <p class="support__banner_if_letter">
+                            Л
+                        </p>
+                        <p class="support__banner_if_letter">
+                            И
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="support__about">
+            <div class="support__about_text" data-aos="fade-down">
+                {{ settings.getSupportText() | raw }}
+            </div>
+            <div class="support__about_important">
+                <picture><source srcset="img/icon-support-important.webp" type="image/webp"><img src="img/icon-support-important.png" class="support__about_important_left" data-aos="fade-down"></picture>
+                <p class="support__about_text" data-aos="fade-down">
+                    Внимательно ознакомьтесь с разделом «Что делать, если «пропал» интернет», перед тем как позвонить в техподдержку.<br>
+                    Возможно, вы уже здесь найдете решение Вашей проблемы.
+                </p>
+            </div>
+        </div>
+        <div class="support__questions">
+            <div class="support__questions_top" data-aos="fade-down">
+                Вопросы и ответы
+            </div>
+            <ul class="support__questions_list">
+                {% for i in supportquestions %}
+                    <li class="support__questions_item" data-aos="fade-down">
+                    <a href="{{ path('page', {'url': i.getUrl()}) }}" class="link">
+                        <p class="support__questions_item_text link">
+                            {{ i.getName() }}
+                        </p>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="support__solution" data-aos="fade-down">
+            <div class="support__solution_top">
+                <picture><source srcset="/img/icon-solution-1.webp" type="image/webp"><img src="/img/icon-solution-1.png" alt="Проверьте свой лицевой счет" class="support__solution_icon"></picture>
+                <p class="support__solution_title">
+                    Проверьте свой<br>лицевой счет
+                </p>
+            </div>
+            <p class="support__solution_bottom">
+                Практика показывает, что самой частой причиной исчезновения Интернета является неоплаченный счет.
+                Все мы люди и иногда забываем или не успеваем вовремя оплатить интернет, дело-то житейское и может случиться с каждым.
+                Поэтому, если ваш Интернет «потеряется», в первую очередь, зайдите в Личный кабинет и проверьте остаток на счете.
+            </p>
+            <a href="https://stat.myfbt.ru/" class="button support__solution_button">Личный кабинет</a>
+            <picture><source srcset="/img/line-stroke.webp" type="image/webp"><img src="/img/line-stroke.png" alt="" class="support__solution_split"></picture>
+            <picture><source srcset="/img/line-stroke-big.webp" type="image/webp"><img src="/img/line-stroke-big.png" alt="" class="support__solution_split_big"></picture>
+        </div>
+        <div class="support__solution" data-aos="fade-down">
+            <div class="support__solution_top">
+                <picture><source srcset="/img/icon-solution-2.webp" type="image/webp"><img src="/img/icon-solution-2.png" alt="Проверьте провода и соединения с оборудованием" class="support__solution_icon"></picture>
+                <p class="support__solution_title">
+                    Проверьте провода и<br>соединения с<br>оборудованием
+                </p>
+            </div>
+            <p class="support__solution_bottom">
+                Следующей причиной может быть повреждение или отсоединение провода. Проверьте состояние проводов и соединений.
+                Может Ваш любимый питомец перегрыз провода или Вы случайно их отсоединили.
+                Проверьте, до конца ли вставлены сетевые кабели в компьютер, ТВ-приставку или роутер.
+            </p>
+            <picture><source srcset="/img/line-stroke.webp" type="image/webp"><img src="/img/line-stroke.png" alt="" class="support__solution_split"></picture>
+            <picture><source srcset="/img/line-stroke-big.webp" type="image/webp"><img src="/img/line-stroke-big.png" alt="" class="support__solution_split_big"></picture>
+        </div>
+        <div class="support__solution" data-aos="fade-down">
+            <div class="support__solution_top">
+                <picture><source srcset="/img/icon-solution-3.webp" type="image/webp"><img src="/img/icon-solution-3.png" alt="Перезагрузите Роутер и/или Медиацентр" class="support__solution_icon"></picture>
+                <p class="support__solution_title">
+                    Перезагрузите Роутер<br>и/или Медиацентр
+                </p>
+            </div>
+            <p class="support__solution_bottom">
+                Еще одна частая причина отсутствия подключения к Интернету – сбились настройки вашего роутера или медиацентра.
+                Роутер и медиацентр подключены к электросети, а там бывают перепады подачи электроэнергии.
+                <br><br>
+                Банально, но они могут просто перегреться и давать сбои. Чтобы вернуть их к нормальной работе, необходимо перегрузить их одновременно, отсоединив вилку роутера и медиацентра от розетки. Пару минут подождать.
+                <br><br>
+                Потом включить роутер и медиацентр. Тогда они заново загрузятся и через пару минут автоматически настроятся. Есть большая вероятность, что Wi-Fi-соединение или Телевидение успешно вернется на ваше устройство.
+            </p>
+            <picture><source srcset="/img/line-stroke.webp" type="image/webp"><img src="/img/line-stroke.png" alt="" class="support__solution_split"></picture>
+            <picture><source srcset="/img/line-stroke-big.webp" type="image/webp"><img src="/img/line-stroke-big.png" alt="" class="support__solution_split_big"></picture>
+        </div>
+        <div class="support__solution" data-aos="fade-down">
+            <div class="support__solution_top">
+                <picture><source srcset="/img/icon-solution-4.webp" type="image/webp"><img src="/img/icon-solution-4.png" alt="Позвоните в техподдержку" class="support__solution_icon"></picture>
+                <p class="support__solution_title">
+                    Позвоните<br>в техподдержку
+                </p>
+            </div>
+            <p class="support__solution_bottom">
+                Если вы попробовали все пункты, но ничего не помогло, позвоните в Техподдержку по телефону<br>
+                <b> {{ phone }} </b>
+                <br><br>
+                Не стесняйтесь обращаться в техподдержку «FB-Телеком», ведь она создана для удобства
+                абонентов и скорейшего решения возможных трудностей, порой возникающих из-за настроек
+                оборудования.
+            </p>
+            <picture><source srcset="/img/line-stroke.webp" type="image/webp"><img src="/img/line-stroke.png" alt="" class="support__solution_split"></picture>
+            <picture><source srcset="/img/line-stroke-big.webp" type="image/webp"><img src="/img/line-stroke-big.png" alt="" class="support__solution_split_big"></picture>
+        </div>
+        <div class="support__solution" data-aos="fade-down">
+            <div class="support__solution_top">
+                <picture><source srcset="/img/icon-solution-5.webp" type="image/webp"><img src="/img/icon-solution-5.png" alt="Напишите в техподдержку" class="support__solution_icon"></picture>
+                <p class="support__solution_title">
+                    Напишите<br>в техподдержку
+                </p>
+            </div>
+            <p class="support__solution_bottom">
+                Чтобы отправить заявку или запрос в Техподдержку, заполните форму обратной связи, и мы обязательно свяжемся с вами удобным для вас способом
+            </p>
+            <div class="support__form">
+                <input type="text" class="support__solution_form_name" placeholder="Введите имя" data-aos="fade-down">
+                <input type="text" class="support__solution_form_phone" placeholder="Введите телефон" data-aos="fade-down">
+                <input type="text" class="support__solution_form_problem" placeholder="Опишите проблему" data-aos="fade-down">
+                <div class="support__solution_form_name" data-aos="fade-down">
+                    <input id="check-support" type="checkbox" required="">
+                    <label class="form__label_check-poltic" for="check-main-modal">Я согласен с <a href="https://myfbt.ru/page/privacy_policy">политикой
+                        конфиденсальности</a></label>
+                </div>
+                <a href="javascript:void(0)" class="button support__form_button support__solution_button" data-aos="fade-down">Оставить заявку</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

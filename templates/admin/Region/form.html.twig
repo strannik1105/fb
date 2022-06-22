@@ -1,0 +1,53 @@
+{% extends 'admin/adminbase.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+
+    <section class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-6 col-md-6">
+                <h1 class="display-5 text-center">
+                    {{ title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form_start(form) }}
+                {{ form_label(form.Name) }}
+                {{ form_widget(form.Name) }}
+                {{ form_label(form.Phone) }}
+                {{ form_widget(form.Phone) }}
+                {{ form_label(form.Adress) }}
+                {{ form_widget(form.Adress) }}
+                {{ form_label(form.Mail) }}
+                {{ form_widget(form.Mail) }}
+                {{ form_label(form.Map) }}
+                {{ form_widget(form.Map) }}
+                {{ form_label(form.WhatsApp) }}
+                {{ form_widget(form.WhatsApp) }}
+                {{ form_label(form.Telegram) }}
+                {{ form_widget(form.Telegram) }}
+                {{ form_label(form.Viber) }}
+                {{ form_widget(form.Viber) }}
+                <p> Почему выбирают нас?(Интеренет) </p>
+                {% if internet_advantages|length < 5 %}
+                    <a href="{{path('admin_regions_internet_adv_add')}}">Добавить</a>
+                {% endif %}
+                <ul>
+                    {% for i in internet_advantages %}
+                        <li> 
+                            {{ i.getName() | raw }} 
+                            <a href="{{path('admin_regions_internet_adv_edit', {'id': i.getId() })}}">Изменить</a>
+                            <a href="{{path('admin_regions_internet_adv_delete', {'id': i.getId() })}}">Удалить</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <br>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

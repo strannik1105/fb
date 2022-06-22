@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%  block head %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+        <link
+                rel="stylesheet"
+                href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+        />
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        {% if gen_info != null %}<title>{{ gen_info.getSEOTitle() }}</title>{% endif %}
+        {% if gen_info != null %}<meta name="description" content="{{ gen_info.getSEODescription }}" />{% endif %}
+        {% if gen_info != null %}<meta name="keywords" content="{{ gen_info.getSEOKeywords }}" />{% endif %}
+    </head>
+    {% endblock %}
+    <body data-aos-easing="ease" data-aos-duration="1500" data-aos-delay="100">
+        {% block header %}
+            <header class="header">
+                <div class="header__container">
+                    <div class="header__logo">
+                        <a href="{{ path('home') }}">
+                        <picture><source srcset="/img/logo.webp" type="image/webp"><img src="/img/logo.png" alt="Официальный сайт провайдера FB-ТЕЛЕКОМ" class="header__logo_img"></picture></div>
+                        </a>
+                    <div class="header__contacts"><a href="tel:+7 923 162-162-3" class="phone">{{ phone }}</a>
+                        <div id="region" class="region">
+                            <p class="region__title">Ваш регион</p>
+                            {% if region != null %}
+                                <p class="region__val" data-region="{{ region }}">{{ region|trim }}</p>
+                            {% endif %}
+                        </div>
+                        <a href="https://stat.myfbt.ru/" class="personal-account">Личный кабинет</a>
+                        <a href="javascript:void(0)" class="button button_header modal_go" data-service="Подключить интернет">Подключить интернет</a>
+                    </div>
+                    <div id="button_menu" class="button_menu">
+                        <div class="button_menu_item button_menu_item-t"></div>
+                        <div class="button_menu_item button_menu_item-c"></div>
+                        <div class="button_menu_item button_menu_item-b"></div>
+                    </div>
+                </div>
+                <menu id="header__menu" class="header__menu hide">
+                    <ul class="header__menu_ul">
+                        {% for item1 in menu %}
+                            {% if item1[0] != null %}
+                            <li class="header__menu_li">
+                                <a class="header__menu_link" href="{{ item1[0].getURL() }}">{{ item1[0].getName() }}</a>
+                                <ul class="header__menu_sub_ul">
+                                {% for item2 in item1[1] %}
+                                    <li class="header__menu_sub_li">
+                                        <a href="{{item2.getURL()}}" class="header__menu_sub_link">{{item2.getName()}}</a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                        <!--li class="header__menu_li">
+                            <a class="header__menu_link" href="{{ path('home') }}">Главная</a>
+                        </li>
+                        <li class="header__menu_li">
+                            <a class="header__menu_link" href="{{ path('company') }}">О компании</a>
+                            <ul class="header__menu_sub_ul">
+                                <li class="header__menu_sub_li">
+                                    <a href="#" class="header__menu_sub_link">Абоненту</a>
+                                </li>
+                                <li class="header__menu_sub_li">
+                                    <a href="#" class="header__menu_sub_link">Условия акции</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header__menu_li">
+                            <a class="header__menu_link" href="javascript:void(0)">Услуги</a>
+                            <ul class="header__menu_sub_ul">
+                                <li class="header__menu_sub_li">
+                                    <a href="{{ path('internet') }}" class="header__menu_sub_link">Интернет</a>
+                                </li>
+                                <li class="header__menu_sub_li">
+                                    <a href="{{ path('tv') }}" class="header__menu_sub_link">Телевидение</a>
+                                </li>
+                                <li class="header__menu_sub_li">
+                                    <a href="{{ path('video') }}" class="header__menu_sub_link">Видеонаблюдение</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header__menu_li">
+                            <a class="header__menu_link" href="javascript:void(0)">Тарифы</a>
+                            <ul class="header__menu_sub_ul">
+                                <li class="header__menu_sub_li">
+                                    <a href="#" class="header__menu_sub_link">Видеонаблюдение</a>
+                                </li>
+                                <li class="header__menu_sub_li">
+                                    <a href="#" class="header__menu_sub_link">Телевидение</a>
+                                </li>
+                                <li class="header__menu_sub_li">
+                                    <a href="#" class="header__menu_sub_link">Интернет</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header__menu_li">
+                            <a class="header__menu_link" href="{{ path('support') }}">Техподдержка</a>
+                        </li>
+                        <li class="header__menu_li">
+                            <a class="header__menu_link" href="{{ path('contacts') }}">Контакты</a>
+                        </li>
+                        <li class="header__menu_li">
+                            <a class="header__menu_link" href="/">WEB-камеры</a>
+                        </li-->
+                    </ul>
+                    </li>
+                    </ul>
+                </menu>
+            </header>
+            <div id="region__dialog" class="region__dialog {% if dialog == true %}region__dialog_active{% endif %}" data-aos="fade-in" data-aos-delay="400">
+                <div id="region__dialog_question" class="region__dialog_question region__dialog_active">
+                    <p class="region__dialog_title">
+                        Это ваш регион?
+                    </p>
+                    <p class="region__dialog_item">
+                        {% if region != null %}
+                            {{ region }}
+                        {% endif %}
+                    </p>
+                    <div class="region__dialog_question_container">
+                        <a id="region_dialog_button_yes" href="javascript:void(0)" class="region__dialog_question_button">Да</a>
+                        <a id="region_dialog_button_not" href="javascript:void(0)" class="region__dialog_question_button">Нет, выбрать другой</a>
+                    </div>
+                </div>
+                <div id="region__dialog_select" class="region__dialog_select">
+                    <p class="region__dialog_title">
+                        Выберите ваш регион:
+                    </p>
+                    <input id="region_search" type="text" placeholder="Ваш населённый пункт">
+                    <div class="region__dialog_container">
+                        {% for region in regions %}
+                            <a href="{{ path('select_region', {'name': region.getName()}) }}" data-region="{{ region.getName() }}" class="region__dialog_item region__dialog_item_change hide">{{ region.getName()  }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+        {% block main %}
+
+        {% endblock %}
+        {% block footer %}
+            <div class="modal">
+                <div class="modal_block">
+                    <div class="modal_close">
+                        <!--svg width="48px" height="48px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.22566 4.81096C5.83514 4.42044 5.20197 4.42044 4.81145 4.81096C4.42092 5.20148 4.42092 5.83465 4.81145 6.22517L10.5862 11.9999L4.81151 17.7746C4.42098 18.1651 4.42098 18.7983 4.81151 19.1888C5.20203 19.5793 5.8352 19.5793 6.22572 19.1888L12.0004 13.4141L17.7751 19.1888C18.1656 19.5793 18.7988 19.5793 19.1893 19.1888C19.5798 18.7983 19.5798 18.1651 19.1893 17.7746L13.4146 11.9999L19.1893 6.22517C19.5799 5.83465 19.5799 5.20148 19.1893 4.81096C18.7988 4.42044 18.1657 4.42044 17.7751 4.81096L12.0004 10.5857L6.22566 4.81096Z" fill="#373944"/>
+                        </svg-->
+                        <picture><source srcset="/img/modal_close.webp" type="image/webp"><img src="/img/modal_close.png" alt="закрыть" class="modal_close_img"></picture>
+                    </div>
+                    <h2 id = "modal_title" class="modal_title">Подключить<br></bt>интернет</h2>
+                    <form class="modal_form" action="">
+                        <div class="form__wrapper">
+                            <input id="name-main" type="text" class="modal_form_input_text" placeholder="|    Введите ФИО" required="true">
+                        </div>
+                        <div class="form__wrapper">
+                            <input id="phone-main" type="text" class="modal_form_input_text" placeholder="|    Введите телефон" required="true">
+                        </div>
+                        <div class="form__wrapper">
+                            <input id="check-main-modal" type="checkbox" required="">
+                            <label class="form__label_check-poltic" for="check-main-modal">Я согласен с <a href="https://myfbt.ru/page/privacy_policy"> политикой
+                                конфиденциальности</a></label>
+                        </div>
+                        <div class="form__wrapper">
+                            <a id = "modal_button" class="modal_form_button modal_form_button_connect-internet" href="javascript:void(0)"></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer>
+                <div>
+                    <picture><source srcset="/img/line-stroke.webp" type="image/webp"><img src="/img/line-stroke.png" alt="" class="footer__stroke"></picture>
+                    <picture><source srcset="/img/line-stroke-big.webp" type="image/webp"><img src="/img/line-stroke-big.png" alt="" class="footer__stroke_big"></picture>
+                </div>
+                <div class="footer">
+                    <div class="footer__contacts">
+                        <p class="footer__label">Контакты</p>
+                        <p class="footer__adress"> {{ adress }} </p>
+                        {% if phone != null %}
+                        <a href="tel:+7 923 162-162-3" class="footer__phone"> {{ phone }} </a>
+                        {% endif %}
+                        <div class="footer__social_networks">
+                            {% if whatsapp != null %}
+                            <a href="{{ whatsapp }}" class="footer__social_networks_logo">
+                                <picture><source srcset="/img/icon-whatsapp.webp" type="image/webp"><img src="/img/icon-whatsapp.png" alt = "Whatsapp"></picture>
+                            </a>
+                            {% else %}
+                                {% if settings.getWhatsApp() != null %}
+                                    <a href="{{ settings.getWhatsApp() }}" class="footer__social_networks_logo">
+                                    <picture><source srcset="/img/icon-whatsapp.webp" type="image/webp"><img src="/img/icon-whatsapp.png" alt = "Whatsapp"></picture>
+                                </a>
+                                {% endif %}
+                            {% endif %}
+                            {% if telegram != null %}
+                            <a href="{{ telegram }}" class="footer__social_networks_logo">
+                                <picture><source srcset="/img/icon-telegram.webp" type="image/webp"><img src="/img/icon-telegram.png" alt="Telegram"></picture>
+                            </a>
+                            {% else %}
+                                {% if settings.getTelegram() != null %}
+                                    <a href="{{ settings.getTelegram() }}" class="footer__social_networks_logo">
+                                    <picture><source srcset="/img/icon-telegram.webp" type="image/webp"><img src="/img/icon-telegram.png" alt = "Whatsapp"></picture>
+                                </a>
+                                {% endif %}
+                            {% endif %}
+                            {% if viber != null %}
+                            <a href="{{ viber }}" class="footer__social_networks_logo">
+                                <picture><source srcset="/img/icon-viber.webp" type="image/webp"><img src="/img/icon-viber.png" alt="Viber"></picture>
+                            </a>
+                            {% else %}
+                                {% if settings.getViber() != null %}
+                                    <a href="{{ settings.getViber() }}" class="footer__social_networks_logo">
+                                    <picture><source srcset="/img/icon-viber.webp" type="image/webp"><img src="/img/icon-viber.png" alt = "Whatsapp"></picture>
+                                </a>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <a href="https://myfbt.ru/page/privacy_policy" class="link">Политика конфиденциальности</a>
+                    </div>
+                    <div class="footer__connect">
+                        <p class="footer__label">Подключение</p>
+                        <ul class = "footer__menu">
+                            <li class ="footer__menu_item link">
+                                <a href="{{ path('internet') }}" class="link">
+                                    Интернет
+                                </a>
+                            </li>
+                            <li class ="footer__menu_item link">
+                                <a href="{{ path('tv') }}" class="link">
+                                    Телевидение
+                                </a>
+                            </li>
+                            <li class ="footer__menu_item link">
+                                <a href="{{ path('video') }}" class="link">
+                                    Видеонаблюдение
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__pay">
+                        <p class="footer__label">Оплата</p>
+                        <p>Оплата за услуги</p>
+                        <a href = "https://online.sberbank.ru/CSAFront/payOrderPaymentLogin.do?ReqId=1061909959443&ST=ufs.billing">
+                        <picture><source srcset="/img/icon-sber.webp" type="image/webp"><img src="/img/icon-sber.png" alt="Сбербанк Онлайн"></picture>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+            <p class="footer__name">
+                FB-Telecom Inc. 2009-20{{ year }}
+            </p>
+        {% endblock %}
+    <script src="/js/script.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 225,
+            delay: 100,
+            duration: 1500
+        });
+    </script>
+    </body>
+
+</html>

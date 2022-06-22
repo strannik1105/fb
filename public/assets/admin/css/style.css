@@ -1,0 +1,8 @@
+.region__select_button
+{
+    text-align: center;
+    background-color: #198754;
+    border-radius: 20px;
+    margin: 8px 0 0 15px;
+    padding: 5px 8px;
+}

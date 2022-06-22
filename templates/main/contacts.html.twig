@@ -1,0 +1,36 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <div class="contacts">
+        <p class="contacts__title" data-aos="fade-down">КОНТАКТНАЯ ИНФОРМАЦИЯ</p>
+        {% if region_info.getAdress() != null %}
+            <div class="contacts__container" data-aos="fade-down">
+                <p class="contacts__container_title">Адрес:</p>
+                <p class="contacts__container_content">{{ region_info.getAdress() }}</p>
+            </div>
+        {% endif %}
+        {% if region_info.getPhone() != null %}
+            <div class="contacts__container" data-aos="fade-down">
+                <p class="contacts__container_title">Телефон:</p>
+                <p class="contacts__container_content">{{ region_info.getPhone() }}</p>
+            </div>
+        {% endif %}
+        {% if region_info.getMail() != null %}
+            <div class="contacts__container" data-aos="fade-down">
+                <p class="contacts__container_title">Email:</p>
+                <p class="contacts__container_content">{{ region_info.getMail() }}</p>
+            </div>
+        {% endif %}
+        {% if region_info.getMap() != null %}
+            <div class="contacts__location" data-aos="fade-down">
+                {{ region_info.getMap() }}
+            </div>
+        {% endif %}
+        <!--div class="contacts__location" data-aos="fade-down">
+            <div style="position:relative;overflow:hidden;">
+                <a href="https://yandex.ru/maps?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Яндекс.Карты</a>
+                <a href="https://yandex.ru/maps/11242/kamen-na-obi/house/ulitsa_lenina_64/bEgYdQJhSUQOQFtpfXt4dHpqZw==/?ll=81.354401%2C53.795668&utm_medium=mapframe&utm_source=maps&z=15.6" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Ленина, 64 — Яндекс.Карты</a>
+                <iframe class="contacts__location_map" src="https://yandex.ru/map-widget/v1/-/CCU5Z0q4~C" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+            </div>
+        </div-->
+    </div>
+{% endblock %}

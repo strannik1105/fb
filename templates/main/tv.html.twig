@@ -1,0 +1,89 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <div class="tv">
+        <div class="tv__banner">
+            <img src="/public/uploads/tv/{{ settings.getTVBanner() }}" alt="" class="tv__banner_img" data-aos="zoom-in">
+            <div class="banner__gradient-box"></div>
+            <div class="tv__banner_container" data-aos="fade-left">
+                <p class="tv__banner_title">СЕМЕЙНЫЙ ИНТЕРНЕТ + TV ДЛЯ ДОМА</p>
+                <p class="tv__banner_content">Наслаждайтесь любимыми фильмами и быстрым интернетом у себя дома</p>
+                <a href="javascript:void(0)" class="button tv__banner_button modal_go" data-service="Выбрать тариф">Выбрать<br>тариф</a>
+            </div>
+        </div>
+
+        <div class="tv__rates">
+            <p class="tv__rates_title" data-aos="fade-down">
+                ПОДКЛЮЧЕНИЕ ИНТЕРАКТИВНОГО ТВ
+            </p>
+            <div class="swiper swiper-tv" data-aos="fade-down">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    {% for rate in rates %}
+                    <div class="swiper-slide">
+                        <div class="rate">
+                            <div class="rate__body tv__rate">
+                                <div class="rate__content">
+                                    <p class="rate__content_title">{{ rate.getName() }}</p>
+                                    {% if rate.getDescription() != null %}
+                                    <p class="rate__content_description">{{rate.getDescription() | raw}}</p>
+                                    {% endif %}
+                                    {% if rate.getCost() != null %}
+                                    <div class="rate__content_cost tv__rate_cost">
+                                        <div class="rate__content_cost_left">
+                                            {{ rate.getCost() | raw}}
+                                        </div>
+                                        {% if rate.getCostType() != null %}
+                                        <p class="rate__content_cost_right">
+                                            {{rate.getCostType()}}
+                                        </p>
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
+                                    <a href="javascript:void(0)" class="button tv__rate_button modal_go" data-service="Телевидение {{ rate.getName() }}">Выбрать<br>тариф</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-prev tv__rate_nav"></div>
+                <div class="swiper-button-next tv__rate_nav"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+            <a name="rates"></a>
+            <div class="rates__container">
+                {% for rate in rates %}
+                <div class="rate tv__rate" data-aos="fade-down">
+                    <div class="rate__body tv__rate">
+                        <div class="rate__content">
+                            <p class="rate__content_title">{{ rate.getName() }}</p>
+                            {% if rate.getDescription() != null %}
+                            <p class="rate__content_description">{{rate.getDescription() | raw}}</p>
+                            {% endif %}
+                            {% if rate.getCost() != null %}
+                            <div class="rate__content_cost tv__rate_cost">
+                                <div class="rate__content_cost_left">
+                                    {{ rate.getCost() | raw}}
+                                </div>
+                                {% if rate.getCostType() != null %}
+                                <p class="rate__content_cost_right">
+                                    {{rate.getCostType()}}
+                                </p>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            <a href="#" class="button tv__rate_button modal_go" data-service="Телевидение {{ rate.getName() }}">Заказать</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+        <p class="rates__warning" data-aos="zoom-in">
+            {{ settings.getTVWarning() | raw }}
+        </p>
+    </div>
+{% endblock %}

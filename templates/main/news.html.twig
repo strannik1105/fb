@@ -1,0 +1,25 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+	<div class="news">
+        <p class="news__title news__title_main">Новости</p>
+        {% for i in news %}
+        <div class="news__item">
+            <div>
+                <img src="/public/uploads/news/{{ i.getImage() }}" alt="" class="news__item_img">
+            </div>
+            <div class="news__item_container">
+                <p class="news__item_title">
+                    {{ i.getName() }}
+                </p>
+                <p class="news__item_date">
+                    {{ i.getDate() }}
+                </p>
+                <p class="news__item_short_descripton">
+                    {{ i.getShortDescription() | raw }}
+                </p>
+                <a class="news__item_read-more link" href="{{ path('news_item' , {'id': i.getId() }) }}">Читать далее</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

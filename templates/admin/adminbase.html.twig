@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Административная панель{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        {#{{ encore_entry_link_tags('app') }}#}
+        <link rel="stylesheet" href="/public/assets/framework/bootstrap-5.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/public/assets/admin/css/style.css">
+    {% endblock %}
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand border-end pe-2 border-success" href="{{ path('admin_home') }}">
+                <span class="h6 text-success">Административная панель</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Пользователи</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_user') }}">Все пользователи</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_user_create') }}">Добавить пользователя</a></li>
+                        </ul>
+                    </li>
+                    <!--li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Регионы</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_regions') }}">Все регионы</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_region_create') }}">Добавить регион</a></li>
+                        </ul>
+                    </li-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Тарифы</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_rates') }}">Все тарифы</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_rate_create') }}">Добавить тариф</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Акции</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_stocks') }}">Все акции</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_stock_create') }}">Добавить акцию</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Вакансии</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_vacancy') }}">Все вакансии</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_vacancy_create') }}">Добавить вакансию</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Новости</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_news') }}">Все новости</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_news_create') }}">Добавить новости</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Страницы</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_pages') }}">Все страницы</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_page_create') }}">Добавить страницу</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Меню</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_menu') }}">Редактировать</a>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Настройки</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_page_settings') }}">Настройки страниц</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_seo') }}">SEO</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_emails') }}">Почта для уведомлений</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_region_edit', {'id': admin_region.getId()}) }}">Настройки региона</a>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Обратная связь</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_applications') }}">Просмотреть</a>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-success m-2" href="{{ path('home') }}">На сайт</a>
+                <a class="btn btn-outline-success" href="{{ path('app_logout') }}">Выйти</a>
+                <div>
+                    <p style = "color: white; margin: 0 20px;min-width: 300px;">Регион: {% if admin_region != null %}{{ admin_region.getName() }}{% endif %}</p>
+                    <li style = "margin-top: -28px;min-width: 300px;" class="nav-item dropdown">
+                        <a style="color: white; text-align: center; background-color: #198754; border-radius: 20px; margin: 8px 0 0 15px; padding: 5px 8px;" class="nav-link dropdown-toggle active region__select_button" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Выбрать другой:</a>
+                        <ul style="margin: 5px 0 0 25px; background-color: #212529;" class="dropdown-menu">
+                            {% for i in all_regions|sort((a, b) => a.getName() > b.getName()) %}
+                                <li style="display: flex;">
+                                    <a class="dropdown-item" style="color: white;max-width: 270px;word-wrap:break-word;word-break: break-all;" aria-current="page" href="{{ path('admin_select_region', {'name': i.getName()}) }}">
+                                        <p style="color: white;padding: 0;width: 250px;word-wrap:break-word;word-break:break-all;white-space:pre-wrap">{{ i.getName() }}</p>
+                                    </a>
+                                    <a class="dropdown-item" href="{{ path('admin_region_delete', {'id': i.getId()}) }}">
+                                        <img style="float: right; margin-top: 10px; height: 14px; width: 10px;" src="/img/delete.png" alt="удалить">
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            <a style="color: white;" class="dropdown-item" href="{{ path('admin_region_create') }}">Добавить регион</a>
+                            <!--li><a class="dropdown-item" aria-current="page" href="{{ path('admin_regions') }}">Все регионы</a>
+                            <li><a class="dropdown-item" aria-current="page" href="{{ path('admin_region_create') }}">Добавить регион</a></li-->
+                        </ul>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% block body %}{% endblock %}
+
+    {% block javascripts %}
+        <script src="/public{{ asset('assets/lib/jquery-3.6.0.min.js') }}"></script>
+        <script src="/public{{ asset('assets/lib/popper.min.js') }}"></script>
+        <script src="/public/{{ asset('assets/framework/bootstrap-5.1.1/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'admin/adminbase.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+
+    <section class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-6 col-md-6">
+                <h1 class="display-5 text-center">
+                    {{ title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-8 col-md-8">
+                <!--a class="btn btn-success mb-4" href="{{ path('admin_menu_item_create') }}">Создать страницу</a-->
+                <h2 class="mb-3">Меню:</h2>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_menu_item_create') }}">Добавить элемент</a>
+                    </li>
+                    {% for item1 in menu %}
+                        {% if item1[0] != null %}
+                        <li>
+                            {{ item1[0].getName() }}(
+                            <!--a href="{{ path('admin_menu_item_insert_before', {'id': item1[0].getId() }) }}">Вставить до</a-->
+                            <a href="{{ path('admin_menu_item_insert_after', {'id': item1[0].getId() }) }}">Вставить после</a>
+                            <a href="{{ path('admin_menu_add_child', {'id': item1[0].getId() }) }}">Добавить подменю</a>
+                            <a href="{{ path('admin_menu_item_remove', {'id': item1[0].getId()}) }}"> Удалить </a>)
+                            <ul>
+                                {% for item2 in item1[1] %}
+                                    {% if item2 != null %}
+                                    <li>
+                                        {{ item2.getName() }}(
+                                        <!--a href="{{ path('admin_menu_child_item_insert_before', {'id': item2.getId() }) }}">Вставить до</a-->
+                                        <a href="{{ path('admin_menu_child_item_insert_after', {'id': item2.getId() }) }}">Вставить после</a>
+                                        <a href="{{ path('admin_menu_item_remove', {'id': item2.getId()}) }}"> Удалить </a>)
+                                    </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

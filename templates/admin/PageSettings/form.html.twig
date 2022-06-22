@@ -1,0 +1,124 @@
+{% extends 'admin/adminbase.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+
+    <section class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-6 col-md-6">
+                <h1 class="display-5 text-center">
+                    {{ title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form_start(form) }}
+                    {{ form_label(form.SubmitType) }}
+                    {{ form_widget(form.SubmitType) }}
+                    <h4>Главная страница</h4>
+                    {{ form_widget(form.MainPage) }}
+                    <h4>О нас в цифрах</h4>
+                    {{ form_label(form.Company_About_Years) }}
+                    {{ form_widget(form.Company_About_Years) }}
+                    {{ form_label(form.Company_About_Companies) }}
+                    {{ form_widget(form.Company_About_Companies) }}
+                    {{ form_label(form.Company_About_Abonents) }}
+                    {{ form_widget(form.Company_About_Abonents) }}
+                    <h4>О компании</h4>
+                    {{ form_widget(form.Company_Text) }}
+                    {{ form_label(form.CompanyImage) }}
+                    {% if companyimage != null %}
+                        <div class="row">
+                            <div class="col-4 col-md-2 m-1" style="max-height: 120px; overflow: hidden; object-position: center center; object-fit: cover">
+                                <img style="height: 100px; width: 100%;display: block;object-fit: cover;object-position: center;" src="/public/uploads/company/{{ companyimage }}">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {{ form_widget(form.CompanyImage) }}
+                    <h4>Интернет</h4>
+                    <h6>Почему выбирают нас?</h6>
+                    {% if internet_advantages|length < 5 %}
+                    <a href="{{path('admin_internet_adv_add')}}">Добавить</a>
+                    {% endif %}
+                    <ul>
+                        {% for i in internet_advantages %}
+                            <li> 
+                                {{ i.getName() | raw }} 
+                                <a href="{{path('admin_internet_adv_edit', {'id': i.getId() })}}">Изменить</a>
+                                <a href="{{path('admin_internet_adv_delete', {'id': i.getId() })}}">Удалить</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                    {{ form_label(form.Rates_Warning) }}
+                    {{ form_widget(form.Rates_Warning) }}
+                    {{ form_label(form.Internet_Text) }}
+                    {{ form_widget(form.Internet_Text) }}
+                    <h4>Телевидение</h4>
+                    <div hidden>
+                    {{ form_label(form.TVBanner) }}
+                    {% if tvbanner != null %}
+                        <div class="row">
+                            <div class="col-4 col-md-2 m-1" style="max-height: 120px; overflow: hidden; object-position: center center; object-fit: cover">
+                                <img style="height: 100px; width: 100%;display: block;object-fit: cover;object-position: center;" src="/uploads/tv/{{ tvbanner }}">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {{ form_widget(form.TVBanner) }}
+                    </div>
+                    <a href="{{ path('admin_tv_banner_add') }}"> Добавить баннер </a>
+                    <br>
+                    {% for i in tvbs %}
+                        <div class="col-4 col-md-2 m-1" style="max-height: 120px; overflow: hidden; object-position: center center; object-fit: cover">
+                            <img style="height: 100px; width: 100%;display: block;object-fit: cover;object-position: center;" src="/uploads/tvbanner/{{ i.getImage() }}">
+                        </div>
+                        <a href="{{ path('admin_tv_banner_delete', { 'id': i.getId() }) }}"> Удалить </a>
+                    {% endfor %}
+                    <br>
+                    {{ form_label(form.TV_Warning) }}
+                    {{ form_widget(form.TV_Warning) }}
+                    <h4>Видеонаблюдение:</h4>
+                    {{ form_label(form.Video_Text) }}
+                    {{ form_widget(form.Video_Text) }}
+                    <h4>Тех.поддержка</h4>
+                    {{ form_label(form.Support_Questions) }}
+                    {{ form_widget(form.Support_Questions) }}
+                    {{ form_label(form.Support_Text) }}
+                    {{ form_widget(form.Support_Text) }}
+                    {{ form_label(form.SupportImage) }}
+                    {% if supportimage != null %}
+                        <div class="row">
+                            <div class="col-4 col-md-2 m-1" style="max-height: 120px; overflow: hidden; object-position: center center; object-fit: cover">
+                                <img style="height: 100px; width: 100%;display: block;object-fit: cover;object-position: center;" src="/uploads/support/{{ supportimage }}">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {{ form_widget(form.SupportImage) }}
+                    <p> <b> Вопросы </b> </p>
+                    <a href="{{ path('admin_support_question_add') }}"> Добавить </a>
+                        {% for i in support_questions %}
+                            <div style="display:flex">
+                                <p> {{ i.getName() }}   </p> 
+                                <a href="{{ path('admin_support_question_delete', {'id': i.getId()}) }}"> Удалить </a>
+                            </div>
+                        {% endfor %}
+                    <h4>Вакансии</h4>
+                    {{ form_widget(form.VacancyText) }}
+                    {{ form_label(form.VacancyImage) }}
+                    {% if vacancyimage != null %}
+                        <div class="row">
+                            <div class="col-4 col-md-2 m-1" style="max-height: 120px; overflow: hidden; object-position: center center; object-fit: cover">
+                                <img style="height: 100px; width: 100%;display: block;object-fit: cover;object-position: center;" src="/uploads/vacancy/{{ vacancyimage }}">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {{ form_widget(form.VacancyImage) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

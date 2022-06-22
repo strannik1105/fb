@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="10e51b90-a40a-4f69-a5a6-87595a141e60" name="a" url="sftp://u76231:xvAV9emyPdMzqeP@u76231.netangels.ru">
+        <fileTransfer accessType="LOCAL" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

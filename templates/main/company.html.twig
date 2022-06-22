@@ -1,0 +1,94 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <div class="company">
+        <div class="company__banner" data-aos="zoom-in">
+            <div class="company__banner_container company__banner_container_1" data-aos="fade-down">
+                <img class="company__banner_img" src="/public/uploads/company/{{ settings.getCompanyImage() }}">
+            </div>
+            <div class="company__banner_container">
+                <div class="company__banner_content">
+                    <p class="company__banner_title_1" data-aos="fade-down">
+                        О КОМПАНИИ
+                    </p>
+                    <p class="company__banner_title_2" data-aos="fade-down">
+                        FB ТЕЛЕКОМ
+                    </p>
+                    <div class="company__banner_item" data-aos="fade-down">
+                        <p class="company__banner_item_1">
+                            больше
+                        </p>
+                        <p class="company__banner_item_2">
+                            {{ settings.getCompanyAboutYears() }}
+                        </p>
+                        <p class="company__banner_item_3">
+                            лет на рынке РФ
+                        </p>
+                    </div>
+                    <div class="company__banner_item" data-aos="fade-down">
+                        <p class="company__banner_item_1">
+                            больше
+                        </p>
+                        <p class="company__banner_item_2">
+                            {{ settings.getCompanyAboutCompanies() }}
+                        </p>
+                        <p class="company__banner_item_3">
+                            компаний и предприятий
+                        </p>
+                    </div>
+                    <div class="company__banner_item" data-aos="fade-down">
+                        <p class="company__banner_item_1">
+                            больше
+                        </p>
+                        <p class="company__banner_item_2">
+                            {{ settings.getCompanyAboutAbonents() }}
+                        </p>
+                        <p class="company__banner_item_3">
+                            абонентов
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="company__about" data-aos="fade-down">
+            {{ settings.getCompanyText() | raw }}
+        </div>
+        <div class="company__licenses">
+            <p class="company__licenses_title">Лицензии FB телеком</p>
+            <div class="swiper_licenses">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="license">
+                            <img src="/img/license.jpg" alt="Лицензия" class="license__img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="license">
+                            <img src="/img/license.jpg" alt="Лицензия" class="license__img">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper_licenses-button-prev"></div>
+                <div class="swiper_licenses-button-next"></div>
+            </div>
+        </div>
+        <div class="company__location">
+            <p class="company__location_title">
+                Мы находимся
+            </p>
+            {% if region_info.getMap() != null %}
+                <div class="company__location_map">
+                    {{ region_info.getMap() }}
+                </div>
+            {% endif %}
+            <!--div class="company__location_map">
+                <div style="position:relative;overflow:hidden;">
+                    <a href="https://yandex.ru/maps?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Яндекс.Карты</a>
+                    <a href="https://yandex.ru/maps/11242/kamen-na-obi/house/ulitsa_lenina_64/bEgYdQJhSUQOQFtpfXt4dHpqZw==/?ll=81.354401%2C53.795668&utm_medium=mapframe&utm_source=maps&z=15.6" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Ленина, 64 — Яндекс.Карты</a>
+                    <iframe class="company__location_map_widget" src="https://yandex.ru/map-widget/v1/-/CCU5Z0q4~C" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                </div>
+            </div-->
+        </div>
+    </div>
+{% endblock %}

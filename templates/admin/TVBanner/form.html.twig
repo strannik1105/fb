@@ -1,0 +1,35 @@
+{% extends 'admin/adminbase.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+
+    <section class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-6 col-md-6">
+                <h1 class="display-5 text-center">
+                    {{ title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form_start(form) }}
+					{% if image != null %}
+                        <div class="row">
+                            <div class="col-4 col-md-2 m-1" style="max-height: 120px; overflow: hidden; object-position: center center; object-fit: cover">
+                                <img style="height: 100px; width: 100%;display: block;object-fit: cover;object-position: center;" src="/uploads/stocks/{{ image }}">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {{ form_label(form.Image) }}
+                    {{ form_widget(form.Image) }}
+                    {{ form_label(form.Submit) }}
+                    {{ form_widget(form.Submit) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

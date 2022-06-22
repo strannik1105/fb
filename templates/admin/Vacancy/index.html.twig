@@ -1,0 +1,34 @@
+{% extends 'admin/adminbase.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+
+    <section class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-6 col-md-6">
+                <h1 class="display-5 text-center">
+                    {{ title }}
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-8 col-md-8">
+                <a class="btn btn-success mb-4" href="{{ path('admin_vacancy_create') }}">Создать вакансию</a>
+                <h2 class="mb-3">Вакансии:</h2>
+                <ul>
+                    {%  for i in vacancy %}
+                        <li>{{ i.getName() }}
+                            <a href="{{ path('admin_vacancy_edit' , {'id': i.getId() }) }}">Редактировать</a>
+                            <a href="{{ path('admin_vacancy_delete' , {'id': i.getId() }) }}">Удалить</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

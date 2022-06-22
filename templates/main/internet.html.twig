@@ -1,0 +1,431 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+    <main class="internet">
+        <div class="internet__slider">
+            <!-- Slider main container -->
+            <div class="swiper_internet">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="banner">
+                            <picture><source srcset="./img/page-main-home.webp" type="image/webp"><img class="banner__img " src="./img/page-main-home.jpg" alt="ИНТЕРНЕТ ДЛЯ ДОМА"></picture> </img>
+                            <div class="banner__gradient-box"></div>
+                            <div class="banner__block_container">
+                                <div class="banner__block">
+                                    <div class="banner__block_1">
+                                        <p class="banner__title">СЕМЕЙНЫЙ ИНТЕРНЕТ + TV<br>ДЛЯ ДОМА</p>
+                                        <p class="banner__text">Наслаждайтесь любимыми<br>фильмами и быстрым интернетом у<br>себя дома</p>
+                                        <a href="#" class="internet__button modal_go" data-service="Выбрать тариф">Выбрать тариф</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner">
+                            <picture><source srcset="./img/page-internet-slide2.webp" type="image/webp"><img class="banner__img " src="./img/page-internet-slide2.jpg" alt="ИНТЕРНЕТ БЕЗ БАГОВ И ПОМЕХ"></picture> </img>
+                            <div class="banner__gradient-box"></div>
+                            <div class="banner__block_container">
+                                <div class="banner__block">
+                                    <div class="banner__block_1">
+                                        <p class="banner__title">ИГРАЙ БЕЗ БАГОВ И ПОМЕХ</p>
+                                        <p class="banner__text">Мощный, бесперебойный интернет с высокой скоростью с помощью технологий xPon и передачи данных по оптоволокну</p>
+                                        <a href="#" class="internet__button modal_go" data-service="Выбрать тариф">Подключить интернет</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner">
+                            <picture><source srcset="./img/page-internet-slide3.webp" type="image/webp"><img class="banner__img " src="./img/page-internet-slide3.jpg" alt="СТАБИЛЬНЫЙ ИНТЕРНЕТ ДЛЯ БИЗНЕСА"></picture> </img>
+                            <div class="banner__gradient-box"></div>
+                            <div class="banner__block_container">
+                                <div class="banner__block">
+                                    <div class="banner__block_1">
+                                        <p class="banner__title">СТАБИЛЬНЫЙ ИНТЕРНЕТ ДЛЯ БИЗНЕСА</p>
+                                        <p class="banner__text">Высокая скорость и бесперебойность работы для эффективного роста и развития Вашего бизнеса</p>
+                                        <a href="#" class="internet__button modal_go" data-service="Выбрать тариф">Выбрать тариф</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="advantages">
+            <p class="main__title" data-aos="fade-down">Почему выбирают нас?</p>
+            <div class="advantages__items" >
+                <div class="advantages__item" data-aos="fade-down">
+                    {% if internetadvantages|length > 0 %}
+                    <div class="advantages__item_sub">
+                        <img class="advantages__item_icon" src="public/uploads/internetadvantages/{{internetadvantages[0].getImage()}}" alt="{{internetadvantages[0].getName()}}">
+                        <div class="advantages__item_title">{{ internetadvantages[0].getName() | raw}}</div>
+                        <div class="advantages__item_text">{{internetadvantages[0].getDescription() | raw}}</div>
+                    </div>
+                    {% endif %}
+                    {% if internetadvantages|length > 1 %}
+                    <div class="advantages__item_sub">
+                        <img class="advantages__item_icon" src="public/uploads/internetadvantages/{{internetadvantages[1].getImage()}}" alt="{{internetadvantages[1].getName()}}">
+                        <div class="advantages__item_title">{{ internetadvantages[1].getName() | raw}}</div>
+                        <div class="advantages__item_text">{{internetadvantages[1].getDescription() | raw}}</div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="advantages__item advantages__item_bottom" data-aos="fade-down">
+                    {% if internetadvantages|length > 2 %}
+                    <div class="advantages__item_sub">
+                        <img class="advantages__item_icon" src="public/uploads/internetadvantages/{{internetadvantages[2].getImage()}}" alt="{{internetadvantages[2].getName()}}">
+                        <div class="advantages__item_title">{{ internetadvantages[2].getName() | raw}}</div>
+                        <div class="advantages__item_text">{{internetadvantages[2].getDescription() | raw}}</div>
+                    </div>
+                    {% endif %}
+                    {% if internetadvantages|length > 3 %}
+                    <div class="advantages__item_sub">
+                        <img class="advantages__item_icon" src="public/uploads/internetadvantages/{{internetadvantages[3].getImage()}}" alt="{{internetadvantages[3].getName()}}">
+                        <div class="advantages__item_title">{{ internetadvantages[3].getName() | raw}}</div>
+                        <div class="advantages__item_text">{{internetadvantages[3].getDescription() | raw}}</div>
+                    </div>
+                    {% endif %}
+                    {% if internetadvantages|length > 4 %}
+                    <div class="advantages__item_sub">
+                        <img class="advantages__item_icon" src="public/uploads/internetadvantages/{{internetadvantages[4].getImage()}}" alt="{{internetadvantages[4].getName()}}">
+                        <div class="advantages__item_title">{{ internetadvantages[4].getName() | raw}}</div>
+                        <div class="advantages__item_text">{{internetadvantages[4].getDescription() | raw}}</div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="about">
+            <p class="main__title" data-aos="fade-down">О НАС В ЦИФРАХ</p>
+            <div class="about__items">
+                <div class="about__item" data-aos="fade-right">
+                    <p class="about__item_i1">
+                        больше
+                    </p>
+                    <p class="about__item_i2">
+                        {{ settings.getCompanyAboutYears() }}
+                    </p>
+                    <p class="about__item_i3">
+                        лет на рынке рф
+                    </p>
+                </div>
+                <div class="about__item" data-aos="fade-right">
+                    <p class="about__item_i1">
+                        больше
+                    </p>
+                    <p class="about__item_i2">
+                        {{ settings.getCompanyAboutCompanies() }}
+                    </p>
+                    <p class="about__item_i3">
+                        компаний и предприятий
+                    </p>
+                </div>
+                <div class="about__item" data-aos="fade-right">
+                    <p class="about__item_i1">
+                        больше
+                    </p>
+                    <p class="about__item_i2">
+                        {{ settings.getCompanyAboutAbonents() }}
+                    </p>
+                    <p class="about__item_i3">
+                        абонентов
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="stocks__slider" data-aos="fade down">
+            <p class="main__title">АКЦИИ И БОНУСЫ</p>
+            <div class="swiper_stocks">
+                <div class="swiper-wrapper">
+                    {% for stock in stocks %}
+                    <div class="swiper-slide">
+                        <img src="public/uploads/stocks/{{ stock.getImage() }}" alt="{{ stock.getName() }}" class="stocks__container-big_item_img">
+                        <div class="stocks__container-big_item_container stocks__container-big_item_container_mobile">
+                            <div class="stocks__container-big_item_info">
+                                <p class="stocks__container-big_item_title">
+                                    {{ stock.getName() }}
+                                </p>
+                                <p class="stocks__container-big_item_content">
+                                    {{ stock.getDescription() | raw }}
+                                </p>
+                                <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stock.getName() }}">Участвовать<br>в акции</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="stocks__nav">
+            {% for i in 1..stocks|length %}
+                {% if i == 1 %}
+                    <img class="stocks__nav_item stocks__nav_item_active" data-index="{{ i }}" src="img/icon-stocks-item.png">
+                {% else %}
+                    <img class="stocks__nav_item" data-index="{{ i }}" src="img/icon-stocks-item.png">
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="stocks" data-aos="fade-down">
+            <p class="main__title">АКЦИИ И БОНУСЫ</p>
+            {% if stocks|length == 1 %}
+            <div class="stocks__container-big">
+                <div>
+                    <div class="stocks__container-big_item">
+                        <img src="public/uploads/stocks/{{ stocks[0].getImage() }}" alt="" class="stocks__container-big_item_img">
+                        <div class="stocks__container-big_item_container">
+                            <div class="stocks__container-big_item_info">
+                                <p class="stocks__container-big_item_title">
+                                    {{ stocks[0].getName() }}
+                                </p>
+                                <p class="stocks__container-big_item_content">
+                                    {{ stocks[0].getDescription() | raw}}
+                                </p>
+                                <a href="#" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[0].getName() }}">Участвовать<br>в акции</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if stocks|length == 2 %}
+            <div class="stocks__container-big">
+                <div>
+                    <div class="stocks__container-big_item">
+                        <img src="public/uploads/stocks/{{ stocks[0].getImage() }}" alt="" class="stocks__container-big_item_img">
+                        <div class="stocks__container-big_item_container">
+                            <div class="stocks__container-big_item_info">
+                                <p class="stocks__container-big_item_title">
+                                    {{ stocks[0].getName() }}
+                                </p>
+                                <p class="stocks__container-big_item_content">
+                                    {{ stocks[0].getDescription() | raw}}
+                                </p>
+                                <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[0].getName() }}">Участвовать<br>в акции</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stocks__container-big_item">
+                        <img src="public/uploads/stocks/{{ stocks[1].getImage() }}" alt="" class="stocks__container-big_item_img">
+                        <div class="stocks__container-big_item_container">
+                            <div class="stocks__container-big_item_info">
+                                <p class="stocks__container-big_item_title">
+                                    {{ stocks[1].getName() }}
+                                </p>
+                                <p class="stocks__container-big_item_content">
+                                    {{ stocks[1].getDescription() | raw}}
+                                </p>
+                                <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[0].getName() }}">Участвовать<br>в акции</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if stocks|length == 3 %}
+            <div class="stocks__container-big">
+                <div>
+                    <div class="stocks__container-big_item">
+                        <img src="public/uploads/stocks/{{ stocks[0].getImage() }}" alt="" class="stocks__container-big_item_img">
+                        <div class="stocks__container-big_item_container">
+                            <div class="stocks__container-big_item_info">
+                                <p class="stocks__container-big_item_title">
+                                    {{ stocks[0].getName() }}
+                                </p>
+                                <p class="stocks__container-big_item_content">
+                                    {{ stocks[0].getDescription() | raw}}
+                                </p>
+                                <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[0].getName() }}">Участвовать<br>в акции</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stocks__container-big_item">
+                        <img src="public/uploads/stocks/{{ stocks[1].getImage() }}" alt="" class="stocks__container-big_item_img">
+                        <div class="stocks__container-big_item_container">
+                            <div class="stocks__container-big_item_info">
+                                <p class="stocks__container-big_item_title">
+                                    {{ stocks[1].getName() }}
+                                </p>
+                                <p class="stocks__container-big_item_content">
+                                    {{ stocks[1].getDescription() | raw}}
+                                </p>
+                                <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[1].getName() }}">Участвовать<br>в акции</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stocks__container-big_item-big">
+                    <img src="public/uploads/stocks/{{ stocks[2].getImage() }}" alt="" class="stocks__container-big_item-big_img">
+                    <div class="stocks__container-big_item-big_info">
+                        <p class="stocks__container-big_item-big_title">
+                            {{ stocks[2].getName() }}
+                        </p>
+                        <p class="stocks__container-big_item-big_content">
+                            {{ stocks[2].getDescription() | raw}}
+                        </p>
+                        <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[2].getName() }}">Участвовать<br>в акции</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if stocks|length > 3 %}
+                <div class="stocks__container-big">
+                    <div>
+                        <div class="stocks__container-big_item">
+                            <img src="public/uploads/stocks/{{ stocks[0].getImage() }}" alt="" class="stocks__container-big_item_img">
+                            <div class="stocks__container-big_item_container">
+                                <div class="stocks__container-big_item_info">
+                                    <p class="stocks__container-big_item_title">
+                                        {{ stocks[0].getName() }}
+                                    </p>
+                                    <p class="stocks__container-big_item_content">
+                                        {{ stocks[0].getDescription() | raw}}
+                                    </p>
+                                    <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[0].getName() }}">Участвовать<br>в акции</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stocks__container-big_item">
+                            <img src="public/uploads/stocks/{{ stocks[1].getImage() }}" alt="" class="stocks__container-big_item_img">
+                            <div class="stocks__container-big_item_container">
+                                <div class="stocks__container-big_item_info">
+                                    <p class="stocks__container-big_item_title">
+                                        {{ stocks[1].getName() }}
+                                    </p>
+                                    <p class="stocks__container-big_item_content">
+                                        {{ stocks[1].getDescription() | raw}}
+                                    </p>
+                                    <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[1].getName() }}">Участвовать<br>в акции</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stocks__container-big_item-big">
+                        <img src="public/uploads/stocks/{{ stocks[2].getImage() }}" alt="" class="stocks__container-big_item-big_img">
+                        <div class="stocks__container-big_item-big_info">
+                            <p class="stocks__container-big_item-big_title">
+                                {{ stocks[2].getName() }}
+                            </p>
+                            <p class="stocks__container-big_item-big_content">
+                                {{ stocks[2].getDescription() | raw}}
+                            </p>
+                            <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[2].getName() }}">Участвовать<br>в акции</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="max-width: 1106px; margin: 50px auto 0">
+                {% for i in 3..stocks|length - 1 %}
+                    <div>
+                        <div class="stocks__container-big_item">
+                            <img src="public/uploads/stocks/{{ stocks[i].getImage() }}" alt="" class="stocks__container-big_item_img">
+                            <div class="stocks__container-big_item_container">
+                                <div class="stocks__container-big_item_info">
+                                    <p class="stocks__container-big_item_title">
+                                        {{ stocks[i].getName() }}
+                                    </p>
+                                    <p class="stocks__container-big_item_content">
+                                        {{ stocks[i].getDescription() | raw}}
+                                    </p>
+                                    <a href="javascript:void(0)" class="button stocks__container-big_item_button modal_go" data-service="Акция {{ stocks[i].getName() }}">Участвовать<br>в акции</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <a name="rates"></a>
+        <div class="rates" data-aos="fade-down">
+            <p class="rates__title">
+                ТАРИФЫ
+            </p>
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+
+                    {% for rate in rates %}
+                        <div class="swiper-slide">
+                            <div class="rate">
+                                <div class="rate__body">
+                                    <div class="rate__content">
+                                        <p class="rate__content_title">{{ rate.getName() }}</p>
+                                        <p class="rate__content_description">{{ rate.getDescription() | raw }}</p>
+                                        <picture><source srcset="/img/icon-rate-wifi.webp" type="image/webp"><img src="/img/icon-rate-wifi.png" alt="Wi-Fi" class="rate__content_icon"></picture>
+                                        <p class="rate__content_speed">{{ rate.getSpeed() }}</p>
+                                        <div class="rate__content_cost">
+                                            {% if rate.getCost() != null %}
+                                            <div class="rate__content_cost_left">
+                                                {{ rate.getCost() | raw }}
+                                            </div>
+                                            {% endif %}
+                                            <p class="rate__content_cost_right">
+                                                {% if rate.getCostType() != null %}
+                                                    {{ rate.getCostType() }}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                        <a href="#" class="button rate__button modal_go" data-service="Интернет {{ rate.getName() }}">Выбрать<br>тариф</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+            <div class="rates__container">
+                {% for rate in rates %}
+                    <div class="rate">
+                        <div class="rate__body">
+                            <div class="rate__content">
+                                <p class="rate__content_title">{{ rate.getName() }}</p>
+                                {% if rate.getDescription() != null %}
+                                <p class="rate__content_description">{{ rate.getDescription() | raw}}</p>
+                                {% endif %}
+                                {% if rate.getSpeed() != null %}
+                                <picture><source srcset="/img/icon-rate-wifi.webp" type="image/webp"><img src="/img/icon-rate-wifi.png" alt="Wi-Fi" class="rate__content_icon"></picture>
+                                <p class="rate__content_speed">{{ rate.getSpeed() }}</p>
+                                {% endif %}
+                                <div class="rate__content_cost">
+                                    {% if rate.getCost() != null %}
+                                    <div class="rate__content_cost_left">
+                                        {{ rate.getCost() | raw }}
+                                    </div>
+                                    {% endif %}
+                                    <p class="rate__content_cost_right">
+                                        {% if rate.getCostType() != null %}
+                                            {{ rate.getCostType() }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <a href="javascript:void(0)" class="button rate__button modal_go" data-service="Интернет {{ rate.getName() }}">Выбрать<br>тариф</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="rates__warning" data-aos="fade-down">
+            {% if warning != null %}
+                {{ warning }}
+            {% else %}
+                {{ settings.getRatesWarning() | raw}}
+            {% endif %}
+        </div>
+        {% if settings.getInternetText() != null %}
+        <div class="internet__text_container" data-aos="fade-down">
+            <div id="text" class="internet__text">
+                {{ settings.getInternetText() | raw}}
+            </div>
+                <a id="details" href="javascript:void(0)" class="internet__text_button">подробнее</a>
+        </div>
+        {% endif %}
+    </main>
+{% endblock %}

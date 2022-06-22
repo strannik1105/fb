@@ -1,0 +1,26 @@
+{% extends 'main/base.html.twig' %}
+{% block main %}
+<div class="news">
+        <p class="news__title news__title_main">Новости</p>
+        <div class="news__item">
+            <div>
+                <img src="/public/uploads/news/{{ news.getImage() }}" alt="" class="news__item_img">
+            </div>
+            <div class="news__item_container">
+                <p class="news__item_title">
+                    {{ news.getName() }}
+                </p>
+                <p class="news__item_date">
+                    {{ news.getDate() }}
+                </p>
+                <p class="news__item_short_descripton">
+                    {{ news.getShortDescription() | raw }}
+                </p>
+            </div>
+        </div>
+        <p class="news__title">Описание</p>
+        <div class="news__item_descripton" >
+            {{ news.getDescription() | raw }}
+        </div>
+    </div>
+{% endblock %}
